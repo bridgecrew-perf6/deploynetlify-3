@@ -1,23 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { 
-  Divider, 
-  Typography, 
-  Button,
-  TextField,
-  InputAdornment,
-  Snackbar,
-  Backdrop,
-  CircularProgress
-} from '@material-ui/core'
-import useStyles from './styles';
+import {
+  Backdrop, Button, CircularProgress, Divider, InputAdornment,
+  Snackbar, TextField, Typography
+} from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
-import InputSenha from '../../components/InputSenha';
-
-import { useForm } from 'react-hook-form';
-import Alert from '@material-ui/lab/Alert';
 import useAuth from '../../hook/useAuth';
 import { put } from '../../services/ApiClient';
+import useStyles from './styles';
+
 
 function EdicaoProduto() {
   const classes = useStyles();
@@ -27,7 +20,6 @@ function EdicaoProduto() {
   const { token } = useAuth();
   const [erro, setErro] = useState('');
   const [carregando, setCarregando] = useState(false);
-  const [old, setOld] = useState([]);
 
   async function onSubmit(data) {
     try {

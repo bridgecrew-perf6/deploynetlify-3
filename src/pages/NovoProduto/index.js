@@ -1,22 +1,15 @@
+import {
+  Backdrop, Button, CircularProgress, Divider, InputAdornment,
+  Snackbar, TextField, Typography
+} from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
 import React, { useState } from 'react';
-import { 
-  Divider, 
-  Typography, 
-  Button,
-  TextField,
-  InputAdornment,
-  Snackbar,
-  Backdrop,
-  CircularProgress,
-} from '@material-ui/core'
-import useStyles from './styles';
+import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
-import Alert from '@material-ui/lab/Alert';
-import { post } from '../../services/ApiClient';
 import useAuth from '../../hook/useAuth';
-import Main from '../../components/Main';
+import { post } from '../../services/ApiClient';
+import useStyles from './styles';
 
 function NovoProduto() {
   const classes = useStyles();
@@ -25,7 +18,6 @@ function NovoProduto() {
   const { register, handleSubmit } = useForm();
   const [erro, setErro] = useState('');
   const [carregando, setCarregando] = useState(false);
-  const [test, setTest] = useState([]);
 
   console.log("Test");
 

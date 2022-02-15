@@ -1,21 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { 
-  Card, 
-  CardContent, 
-  TextField, 
-  Button, 
-  Typography,
-  Backdrop,
-  CircularProgress
+import {
+  Backdrop, Button, Card,
+  CardContent, CircularProgress, TextField, Typography
 } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
-import useStyles from './styles';
-
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useHistory } from 'react-router-dom';
-
-import { post } from '../../services/ApiClient';
 import InputSenha from '../../components/InputSenha';
+import { post } from '../../services/ApiClient';
+import useStyles from './styles';
+
+
 
 function Cadastro() {
   const classes = useStyles();
@@ -23,7 +18,6 @@ function Cadastro() {
   const history = useHistory();
   const [erro, setErro] = useState('');
   const [carregando, setCarregando] = useState(false);
-  const test = "";
 
   async function onSubmit(data) {
     if (data.senha !== data.senhaRepetida) {
